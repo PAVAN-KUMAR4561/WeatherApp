@@ -1,0 +1,65 @@
+.cities{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+    color: white;
+    margin-bottom: 1px;
+}
+.temp{
+    font-size: 25px;
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem
+}
+
+.noitem i{
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding-top: 150px;
+    font-size: 10rem;
+}
+
+.noitem p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+
+
+.fav-outer{
+    height: 27.7rem;
+}
+.remove{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    color: white;
+}
+.remove span{
+    cursor: pointer;
+}
+
+.fa-heart {
+    color: orange; 
+  }
+  
+  .fa-heart-o {
+    color: rgb(255, 254, 254); 
+    
+  }
+  .fa{
+    font-size: 40px;
+    cursor: pointer;   
+  }

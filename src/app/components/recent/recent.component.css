@@ -1,0 +1,15 @@
+.noitem i{
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding-top: 150px;
+    font-size: 10rem;
+}
+
+.noitem p{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+}
