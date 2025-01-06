@@ -1,4 +1,4 @@
-<div>
+
 <div class="homeouter">
     <div class="location">
         {{data.location.name}}, {{data.location.region}}
@@ -6,17 +6,15 @@
     <div class="fav">
         @if(!infav){
 
-            <img class="fav-icon" src="/images/icon_favourite 1.png" (click)="addtoFav()" alt=""> Add to favourite
+            <img *ngIf="!infav" class="fav-icon" src="/images/icon_favourite 1.png" (click)="addtoFav()" alt=""> Add to favourite
         }
         @else{
-            <img class="fav-icon" src="\images\icon_favourite_Active.png" (click)="addtoFav()" alt=""> Added to favourite
+            <img  *ngIf="infav" class="fav-icon" src="\images\icon_favourite_Active.png" (click)="removeFav()" alt=""> Added to favourite
         }
     </div>
     <div class="Home-display">
-        <!-- <i id="icon" class="fa fa-sun icon-large">{{data.current.condition.icon}}</i> -->
         <img [src]="data.current.condition.icon" alt="Weather Icon" />
         <div class="temp">
-          <!-- <span class="tempno">{{data.current.temp_c}} &#176;</span><button class="Btn-C">&#176;C</button><button class="Btn-F">&#176;F</button> -->
           <span class="tempno">
             {{ unit === 'C' ? data.current.temp_c : data.current.temp_f }}&#176;
           </span> 
@@ -33,42 +31,42 @@
     <div class="line"></div>
 <div class="footer">
     <div class="footerText">
-        <i class="fas fa-temperature-high icon-large"></i>
+        <i class="fas fa-temperature-high icon-large outlined-icon"></i>
         <div class="content">
             <p>Min-Max</p>
-            <p>{{data.current.temp_c-2}}&#176;- {{data.current.temp_c+2}}&#176;</p>
+            <p class="footer-value">{{roundNumber(data.current.temp_c-2)}}&#176;- {{roundNumber(data.current.temp_c+2)}}&#176;</p>
         </div>
     </div>
     <div class="footerText">
         <i class="fas fa-cloud-rain icon-large outlined-icon"></i>
         <div class="content">
             <p>Precipitation</p>
-            <p>{{data.current.precip_mm}}mm</p>
+            <p class="footer-value">{{data.current.precip_mm}} mm</p>
         </div>
     </div>
     <div class="footerText">
         <i class="fas fa-tint icon-large outlined-icon"></i>
         <div class="content">
             <p>Humidity</p>
-            <p>{{data.current.humidity}}%</p>
+            <p class="footer-value">{{data.current.humidity}} %</p>
         </div>
     </div>
     <div class="footerText">
         <i class="fas fa-wind icon-large"></i>
         <div class="content">
             <p>Wind</p>
-            <p>{{data.current.wind_kph}} mph</p>
+            <p class="footer-value">{{data.current.wind_kph}} mph</p>
         </div>
     </div>
     <div class="footerText">
         <i class="fas fa-eye icon-large outlined-icon"></i>
         <div class="content">
             <p>Visibility</p>
-            <p>{{data.current.vis_miles}}mph</p>
+            <p class="footer-value">{{data.current.vis_miles}} mph</p>
         </div>
     </div>
 </div>
 
-</div>
+
 
 

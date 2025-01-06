@@ -1,5 +1,31 @@
+<div class="fav-outer">
+  <div class="remove" *ngIf="climate.length !== 0">
+    <span> {{ climate.length }} {{ climate.length == 1 ? 'City' : 'Cities' }} Recently Searched</span>
+    <span (click)="openPrompt()">Clear all</span>
+  </div>
 
-<div class="noitem">
-    <i class="fa fa-box-open icon-large"></i> 
+  <div class="noitem" *ngIf="climate.length === 0">
+    <i class="fa fa-box-open icon-large"></i>
     <p>No Recent Search</p>
+  </div>
+
+  <div class="cities" *ngFor="let city of climate; let i = index">
+    <div class="loc-name">{{ city.location.name }} <span>{{ city.location.region }}</span></div>
+    <div class="items">
+      <img [src]="city.current.condition.icon" alt="Weather Icon" />
+      <span class="temp">{{ city.current.temp_c }} &#176;C</span>
+      <span>{{ city.current.condition.text }}</span>
+    </div>
+
+   
+    <div>
+      <span (click)="toggleFav(city)">
+        <img *ngIf="isCityInFav(city)" class="fav-icon" src="\images\icon_favourite_Active.png" alt="Favourite Icon">
+        <img *ngIf="!isCityInFav(city)" class="fav-icon" src="\images\icon_favourite 1.png" alt="Active Favourite Icon">
+      </span>
+
+    </div>
+  </div>
 </div>
+
+<app-popup *ngIf="showPrompt" (response)="handleResponse($event)"></app-popup>

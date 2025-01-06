@@ -14,7 +14,6 @@ export class FavouriteComponent implements OnInit {
   ngOnInit(): void {
     this.climate=JSON.parse(localStorage.getItem('favourite')||'[]')
    
-    // throw new Error('Method not implemented.');
   }
 
   

@@ -1,5 +1,5 @@
 <div class="fav-outer">
-<div class="remove" **ngIf="climate.length != 0">
+<div class="remove" *ngIf="climate.length != 0">
     <span> {{climate.length}} {{climate.length == 1 ?'City':'Cities'}} added as Favourite</span>
     <span (click)="openPrompt()">Remove all</span>
 </div>
@@ -10,13 +10,18 @@
     <p>No Favourites Added</p>
 </div>
 
-<div class="cities" *ngFor="let climate of climate"  >
-    <div>{{climate.name}} <span>{{climate.region}}</span></div>
+
+<div class="cities" *ngFor="let city of climate let i=index"  >
+    
+    <div class="loc-name">{{city.name}} <span>{{city.region}}</span></div>
     <div class="items">
-         <img [src]="climate.icon"/>
-        <span class="temp"> {{climate.temp_c}} </span> &#176;C <span>{{climate.text}}</span></div>
-        <div> <img src="\images\icon_favourite_Active.png" alt="Fav"></div>
+         <img [src]="city.icon"/>
+        <span class="temp"> {{city.temp_c}} </span> &#176;C <span>{{city.text}}</span>
+    </div>
+        <div> <img  class="heart-icon" src="\images\icon_favourite_Active.png" (click)="handleclick(i)" alt="Fav"></div>
+       
 </div>
+
 
 
 </div>

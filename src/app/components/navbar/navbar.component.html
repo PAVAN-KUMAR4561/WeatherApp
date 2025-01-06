@@ -1,40 +1,63 @@
-
 <html>
-<body>
- 
-
   <header>
+    
     <div class="navbar1">
       <div class="hamburger" (click)="toggleNavbar()">
         &#9776;
       </div>
-      <div >
-        <img class="weather-img"src="\images\WeatherLogo.png" alt="WeatherLogo">
+      <div>
+        <img class="weather-img" src="\images\WeatherLogo.png" alt="WeatherLogo">
       </div>
 
       <div class="search-container">
-        <input class="search-bar" type="text" name="search" placeholder="Search city" />
-          <img class="magnifyglass" src="/images/MagnifyingGlass.png" />
+        <input class="search-bar" 
+               [(ngModel)]="searchQuery"
+               (ngModelChange)="onSearchChange()" 
+               type="text" autocomplete="off" name="search" placeholder="Search city" />
+        <img class="magnifyglass" src="/images/MagnifyingGlass.png"/>
+        <div *ngIf="searchResults.length > 0" class="search-results">
+          <div *ngFor="let result of searchResults">
+            <p class="search-result-1" (click)="onSuggestionClick(result)">{{ result.name }}, {{ result.region }}</p>
+          </div>
+        </div>
+      </div>
+
+    
+      <img class="magnifyglass2" src="/images/MagnifyingGlass.png" (click)="toggleSearchBar()" />
+    </div>
+
+    <div *ngIf="isSearchBarVisible" class="search-container2" > 
+      <link class="close-btn" (click)="closeSearchBar()" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+      <input class="search-bar2"  
+             [(ngModel)]="searchQuery"
+             (ngModelChange)="onSearchChange()" 
+             type="text" autocomplete="off" name="search" placeholder="Search city" />
+        <div *ngIf="searchResults.length > 0" class="search-results2">
+        <div *ngFor="let result of searchResults">
+          <p class="search-result-2" (click)="onSuggestionClick(result)">
+            {{ result.name }}, {{ result.region }}
+          </p>
+        </div>
       </div>
     </div>
-  
-<div class="navbar2" [ngClass]="{ 'show-navbar': isNavbarVisible }">
-  <div class="left-links">
-    <span routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">HOME</span>
-    <span routerLink="/favourite" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" class="nav-link">FAVOURITE</span>
-    <span routerLink="/recent" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  class="nav-link">RECENT SEARCH</span>
-  </div>
-  <div class="date-container">
-    <span id="date">{{ formattedDate }}</span>
-  </div>
- 
-</div>
-<div class="date-container2">
-  <span id="date">{{ formattedDate }}</span>
-</div>
-<div class="btm-line"></div>
 
-      
+
+    <div class="navbar2" [ngClass]="{ 'show-navbar': isNavbarVisible }">
+      <div class="left-links">
+        <span routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">HOME</span>
+        <span routerLink="/favourite" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }" class="nav-link">FAVOURITE</span>
+        <span routerLink="/recent" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  class="nav-link">RECENT SEARCH</span>
+      </div>
+      <div class="date-container">
+        <span id="date">{{ formattedDate }}</span>
+      </div>
+    </div>
+
+    <div class="date-container2">
+      <span id="date">{{ formattedDate }}</span>
+    </div>
+
+    <div class="btm-line"></div>
   </header>
-</body>
 </html>

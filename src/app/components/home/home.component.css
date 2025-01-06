@@ -1,74 +1,42 @@
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 2px;
-  color: white;
-  border-top: 1px solid #ffffff41;
-  overflow-x: hidden;  /* Hide the scrollbar by default */
-  white-space: nowrap; 
-}
-
-.footer-items {
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  width: 100%;
-}
-
-.content {
-  padding: 5px;
-}
-
-.Home-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  color: white;
-  flex-direction: column;
-  font-family: sans-serif;
-}
-
-.icon {
-  padding-bottom: 5px;
-}
-
-.homeouter {
-  height: 26.7rem;
-}
-
 .location {
+  font-size: 22px;
+  font-family: sans-serif;
   color: white;
-  font-size: 20px;
   padding: 1rem;
-  margin-top: 15px;
 }
 
 .fav {
-  color: white;
-  font-size: 14px;
-  padding-left: 1rem;
-}
-
-.location, .fav {
+  font-size: 16px;
   font-family: sans-serif;
+  color: white;
+  padding-left: 1.1rem;
 }
 
 .fav-icon {
   height: 16px;
 }
 
-.sun {
-  height: 50px;
-  width: 50px;
+.Home-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 50vh;
+  flex-direction: column;
+  font-family: sans-serif;
 }
 
-/* .Btn-C,
-.Btn-F {
-  border: solid 1px white;
+.wheather-title {
+  font-size: 24px;
   padding: 5px;
-} */
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+
+.tempno {
+  font-size: 50px;
+}
 
 .Btn-C, .Btn-F {
   border: solid 1px white;
@@ -78,24 +46,24 @@
 }
 
 .Btn-C.active, .Btn-F.active {
-  background-color: #ffffff; /* Green background for active button */
+  background-color: #ffffff;
   color: red;
 }
 
-
-.wheather-title {
-  font-size: 24px;
-  padding: 5px;
-  display:flex;
-  justify-content: center;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 2px;
+  color: white;
+  border-top: 1px solid #ffffff41;
 }
 
-.tempno {
-  font-size: 50px;
-}
-
-.icon-large {
-  font-size: 30px;
+.footer-items {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
 }
 
 .footerText {
@@ -104,58 +72,81 @@
   align-items: center;
 }
 
+.footer-value {
+  font-size: 22px;
+  width: 85px;
+}
+
 .outlined-icon {
   color: white;
   -webkit-text-stroke: 2px white;
+  font-size: 30px;
   color: transparent;
 }
 
+.content {
+  padding: 7px;
+}
+
+.fa, .fas {
+  font-size: 26px;
+}
+
+.icon {
+  padding-bottom: 5px;
+}
+
+
+
+
 @media (max-width: 700px) {
   .footer {
-    align-items: flex-start;
-    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 2px;
+    color: white;
+    border-top: 1px solid #ffffff41;
+    overflow-x: auto;  
+    overflow-y: hidden; 
+    width: 100%;
+    white-space: nowrap;  
+    scrollbar-width: none;
   }
 
   .footer-items {
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    width: 100%;
+    gap: 10px; 
   }
 
   .Home-display {
-    height: 40vh;
-  }
-
-  .location {
-    font-size: 22px;
-    padding: 0.5rem;
-  }
-
-  .fav {
-    font-size: 22px;
-    padding-left: 0.5rem;
-  }
-
-  .sun {
-    height: 40px;
-    width: 40px;
-  }
-
-  .tempno {
-    font-size: 40px;
-  }
-
-  .icon-large {
-    font-size: 40px;
+    height: 49vh;
   }
 
   .footerText {
-    gap: 10px;
+    display: flex;
+    gap: 2%;
+    align-items: center;
+  }
+
+  .footer-value {
+    font-size: 22px;
+    width: 120px;
+  }
+
+  .footer-items > * {
+    white-space: nowrap;
   }
 }
+
 @media (max-width: 500px) {
   .Home-display {
-    height: 35vh;
-    overflow-x: auto;  /* Horizontal scrolling only */
-    overflow-y: hidden; /* Disable vertical scrolling */
+    height: 52vh;
+    overflow-x: auto;  
+    overflow-y: hidden; 
   }
 
   .location {
@@ -211,7 +202,7 @@
 
 @media (max-width: 400px) {
   .Home-display {
-    height: 30vh;
+    height: 56vh;
     overflow-x: auto;  /* Horizontal scrolling only */
     overflow-y: hidden; /* Disable vertical scrolling */
   }
